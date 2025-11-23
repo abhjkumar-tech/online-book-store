@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Book World</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Verdana, sans-serif;
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        text-align: center;
+        color: rgb(44, 35, 35);
+    }
+
+    .header {
+        padding: 20px;
+        background: #1a1a2e;
+        color: white;
+        text-shadow: 1px 1px 5px black;
+    }
+
+    .header img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border: 3px solid yellow;
+    }
+
+    .header span {
+        color: #ffda00;
+    }
+
+    nav {
+        background: #16213e;
+        padding: 12px;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 10px;
+        font-size: 18px;
+        padding: 6px 12px;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        background: #e94560;
+        color: yellow;
+    }
+
+    #search {
+        padding: 7px;
+        border: 2px solid yellow;
+        border-radius: 6px;
+        margin-left: 15px;
+    }
+
+    .btn {
+        background: #e94560;
+        color: white;
+        border: none;
+        padding: 7px 12px;
+        cursor: pointer;
+        border-radius: 6px;
+    }
+
+    .btn:hover {
+        background: yellow;
+        color: black;
+    }
+
+    .container {
+        margin-top: 30px;
+    }
+    
+    .card {
+        width: 200px;
+        background: white;
+        padding: 15px;
+        margin: 12px;
+        display: inline-block;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px black;
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        background: #fff4b0;
+        transform: scale(1.08);
+    }
+
+</style>
+</head>
+<body>
+<div class="header">
+    <img src="https://assets.allegiance-educare.com/colleges/thumb/150_150_1630486256DRONACHARYAGROUPOFINSTITUTIONSDGIGreaterNoida.jpg">
+    <h1><b>Book <span>World</span></b></h1>
+</div>
+
+<nav>
+    <a href="#home">🏠 Home</a>
+    <a href="#login">🔑 Login</a>
+    <a href="#register">📝 Register</a>
+    <a href="#catalog">📚 Catalogue</a>
+    <a href="#cart">🛒 Cart</a>
+    
+    <a href="https://wa.me/9721604396" target="_blank" style="text-decoration:none;">
+    <button class="btn">💬 WhatsApp Chat</button>
+</a>
+
+
+    <input type="text" id="search" placeholder="Search book...">
+    <button class="btn">Go</button>
+</nav>
+
+<div class="container">
+   <a href="https://csestore.cse.org.in/usd/" target="_blank">
+    <div class="card">CSE</div>
+</a>
+
+    <div class="container">
+     <a href="https://www.gatenotes.in/gate-ece-notes.php" target="_blank">
+    <div class="card">ECE</div>
+</a>
+
+    <div class="card">IT</div>
+    <div class="card">ME</div>
+    <div class="card">Civil</div>
+    <div class="card">AIML</div>
+</div>
+
+</body>
+</html>
