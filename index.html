@@ -3,305 +3,413 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SWAGGY | Modern Brand</title>
-    <!-- Importing Google Fonts for that premium look -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
-    
+    <title>ShopMax - Online Shopping</title>
     <style>
-        /* --- CSS VARIABLES & RESET --- */
-        :root {
-            --bg-color: #050505;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --text-main: #ffffff;
-            --text-muted: #888888;
-            --accent: #6d28d9; /* Deep Purple */
-            --glow: #a78bfa;
-        }
-
+        /* --- RESET & BASIC STYLES --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Outfit', sans-serif;
-            overflow-x: hidden;
-            cursor: none; /* Hiding default cursor for custom one */
+            background-color: #f1f3f6;
         }
 
-        /* --- CUSTOM CURSOR --- */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 1px solid white;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s;
-            mix-blend-mode: difference;
+        a {
+            text-decoration: none;
+            color: white;
         }
 
-        .cursor-dot {
-            width: 4px;
-            height: 4px;
-            background: var(--glow);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
+        ul {
+            list-style: none;
         }
 
-        /* --- NAVIGATION --- */
-        nav {
+        /* --- HEADER SECTION --- */
+        header {
+            background-color: #2874f0;
+            color: white;
+            padding: 15px 0;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 2rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            justify-content: space-between;
+            padding: 0 20px;
         }
 
         .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            background: linear-gradient(to right, #fff, #aaa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 2rem;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: white;
-            text-shadow: 0 0 10px rgba(255,255,255,0.5);
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            height: 100vh;
+            font-size: 24px;
+            font-weight: bold;
+            font-style: italic;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 0 5%;
-            position: relative;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: #ff9f00; /* The yellow part in Flipkart logo */
         }
 
-        /* Background glow effect */
-        .glow-orb {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(109,40,217,0.3) 0%, rgba(0,0,0,0) 70%);
-            position: absolute;
-            right: -10%;
-            top: 20%;
-            border-radius: 50%;
-            filter: blur(60px);
-            z-index: -1;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 6rem;
-            line-height: 1;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
-
-        h1 span {
-            display: block;
-            background: linear-gradient(90deg, #fff, #666);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p.subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 500px;
-            margin-bottom: 3rem;
-            line-height: 1.6;
-        }
-
-        /* --- BUTTONS --- */
-        .btn {
-            padding: 15px 40px;
+        /* Search Bar Styling */
+        .search-container {
+            display: flex;
+            width: 50%;
             background: white;
-            color: black;
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 50px;
-            transition: 0.3s;
-            position: relative;
+            border-radius: 2px;
             overflow: hidden;
         }
 
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255,255,255,0.2);
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.2);
+        .search-btn {
+            background-color: #ff9f00;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #2874f0;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .login-btn {
+            background-color: white;
+            color: #2874f0;
+            padding: 8px 20px;
+            font-weight: bold;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .cart-icon {
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* --- BANNER --- */
+        .banner {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            /* Placeholder color for banner */
+            background: linear-gradient(to right, #2874f0, #ff9f00); 
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            margin-left: 15px;
+            font-size: 30px;
+            font-weight: bold;
         }
 
-        .btn-outline:hover {
-            border-color: white;
-            background: rgba(255,255,255,0.05);
+        /* --- MAIN PRODUCT SECTION --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        /* --- CARDS SECTION --- */
-        .section {
-            padding: 5rem 5%;
+        /* Sidebar Categories */
+        .sidebar {
+            width: 250px;
+            background: white;
+            padding: 20px;
+            display: none; /* Hidden on mobile */
         }
 
-        .grid {
+        @media (min-width: 768px) {
+            .sidebar { display: block; }
+        }
+
+        .filter-group h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 5px;
+        }
+
+        /* Product Grid */
+        .products-area {
+            flex: 1;
+            background: white;
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
         }
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 2rem;
-            border-radius: 20px;
-            transition: 0.3s;
+        /* Product Card Styles */
+        .product-card {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: box-shadow 0.3s;
+            border: 1px solid transparent;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--glow);
-            box-shadow: 0 10px 40px -10px rgba(109,40,217,0.2);
+        .product-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 1px solid #e0e0e0;
         }
 
-        .card h3 {
-            font-size: 1.5rem;
+        .product-image {
+            width: 180px;
+            height: 200px;
+            background-color: #f0f0f0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+        }
+
+        .product-title {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .ratings {
+            color: #fff;
+            background-color: #ff9f00;
+            font-size: 12px;
+            padding: 2px 5px;
+            border-radius: 4px;
+            margin: 5px 0;
+            display: inline-block;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 5px 0;
+        }
+
+        .original-price {
+            font-size: 14px;
+            color: #878787;
+            text-decoration: line-through;
+            margin-right: 5px;
+        }
+
+        .discount {
+            color: #ff9f00;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .add-to-cart-btn {
+            background-color: #ff9f00;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            border-radius: 2px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #e89300;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #172337;
+            color: white;
+            padding: 40px 0;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            text-align: left;
+            padding: 0 20px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-col ul li {
             margin-bottom: 10px;
         }
 
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* --- ANIMATIONS --- */
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            50% { transform: translate(20px, -20px); }
-            100% { transform: translate(0, 0); }
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            h1 { font-size: 3.5rem; }
-            nav { padding: 1.5rem; }
-            .nav-links { display: none; } /* Hiding links for simple mobile view */
+        .footer-col ul li a {
+            color: #fff;
+            opacity: 0.7;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Custom Cursor Elements -->
-    <div class="cursor"></div>
-    <div class="cursor-dot"></div>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">Shop<span>Max</span></a>
+            
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search for products, brands and more">
+                <button class="search-btn">🔍</button>
+            </div>
 
-    <nav>
-        <div class="logo">NEXUS.</div>
+            <div class="header-right">
+                <button class="login-btn">Login</button>
+                <div class="cart-icon">🛒 Cart</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
         <div class="nav-links">
-            <a href="#">Work</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="#">Electronics</a>
+            <a href="#">TVs & Appliances</a>
+            <a href="#">Men</a>
+            <a href="#">Women</a>
+            <a href="#">Baby & Kids</a>
+            <a href="#">Home & Furniture</a>
+            <a href="#">Sports & More</a>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="glow-orb"></div>
-        <h1>
-            Future<br>
-            <span>Is Now</span>
-        </h1>
-        <p class="subtitle">
-            We build digital experiences that redefine the standard. 
-            Minimalist design, maximum impact.
-        </p>
-        <div class="cta-group">
-            <a href="#" class="btn">Get Started</a>
-            <a href="#" class="btn btn-outline">View Work</a>
-        </div>
-    </section>
+    <!-- Banner -->
+    <div class="banner">
+        <div>BIG SALE IS LIVE NOW</div>
+    </div>
 
-    <section class="section">
-        <h2 style="font-family: 'Space Grotesk'; font-size: 2rem;">Our Expertise</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>UI/UX Design</h3>
-                <p>Interfaces so smooth they feel like butter. We craft pixels into emotions.</p>
+    <!-- Main Content -->
+    <div class="container">
+        
+        <!-- Sidebar (Filters) -->
+        <aside class="sidebar">
+            <div class="filter-group">
+                <h3>Filters</h3>
+                <p>Category</p>
+                <ul>
+                    <li><input type="checkbox"> Electronics</li>
+                    <li><input type="checkbox"> Fashion</li>
+                    <li><input type="checkbox"> Home</li>
+                </ul>
             </div>
-            <div class="card">
-                <h3>Development</h3>
-                <p>Clean code, robust architecture. Built for scale and speed.</p>
-            </div>
-            <div class="card">
-                <h3>Branding</h3>
-                <p>Identity systems that stick. Make your mark unforgettable.</p>
-            </div>
-        </div>
-    </section>
+        </aside>
 
-    <script>
-        // Simple JavaScript for Custom Cursor
-        const cursor = document.querySelector('.cursor');
-        const cursorDot = document.querySelector('.cursor-dot');
-
-        document.addEventListener('mousemove', (e) => {
-            // Animate the dot instantly
-            cursorDot.style.left = `${e.clientX}px`;
-            cursorDot.style.top = `${e.clientY}px`;
+        <!-- Product Area -->
+        <main class="products-area">
+            <h2 class="section-title">Best Sellers in Electronics</h2>
             
-            // Animate the outer ring with a slight delay (smoother feel)
-            cursor.animate({
-                left: `${e.clientX - 10}px`,
-                top: `${e.clientY - 10}px`
-            }, { duration: 500, fill: "forwards" });
-        });
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">📷 Camera</div>
+                    <div class="product-title">Canon EOS 1500D 24.1MP DSLR Camera</div>
+                    <div>⭐⭐⭐⭐ (450)</div>
+                    <div class="price">₹35,999</div>
+                    <div>Free Delivery</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Canon Camera')">ADD TO CART</button>
+                </div>
 
-        // Add hover effect to links
-        document.querySelectorAll('a, .card').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'scale(3)';
-                cursor.style.background = 'rgba(255,255,255,0.1)';
-                cursor.style.borderColor = 'transparent';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'scale(1)';
-                cursor.style.background = 'transparent';
-                cursor.style.borderColor = 'white';
-            });
-        });
-    </script>
-</body>
-</html>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">🎧 Headphone</div>
+                    <div class="product-title">Sony WH-1000XM4 Wireless Noise Cancelling Headphones</div>
+                    <div class="ratings">⭐ 4.5</div>
+                    <div class="price">₹22,990</div>
+                    <div class="discount">25% off</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('Sony Headphone')">ADD TO CART</button>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">📱 Mobile</div>
+                    <div class="product-title">Apple iPhone 14 (Blue, 128GB)</div>
+                    <div class="ratings">⭐ 4.7</div>
+                    <div class="price">₹66,900</div>
+                    <div class="discount">15% off</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('iPhone 14')">ADD TO CART</button>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">💻 Laptop</div>
+                    <div class="product-title">HP Ryzen 5 8GB RAM 512GB SSD Laptop</div>
+                    <div class="ratings">⭐ 4.2</div>
+                    <div class="price">₹49,990</div>
+                    <button class="add-to-cart-btn" onclick="addToCart('HP Laptop')">ADD TO CART</button>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image">
